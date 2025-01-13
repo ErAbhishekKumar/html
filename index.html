@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Send Mail</h1>
+    
+    <form id="mailForm">
+        <label for="emails">To (Email IDs):</label>
+        <textarea id="emails" rows="4">example1@gmail.com, example2@yahoo.com, example3@hotmail.com</textarea>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" value="Default Subject">
+        
+        <label for="message">Message:</label>
+        <textarea id="message" rows="6">This is the default message body.</textarea>
+        
+        <button type="button" onclick="sendMail()">Mail</button>
+    </form>
+
+    <script>
+        function sendMail() {
+            const emails = document.getElementById('emails').value.split(',').map(email => email.trim()).join(',');
+            const subject = encodeURIComponent(document.getElementById('subject').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+
+            const mailtoLink = `mailto:${emails}?subject=${subject}&body=${message}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+
+</body>
+</html>
