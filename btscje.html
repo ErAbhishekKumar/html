@@ -39,7 +39,8 @@
 <body>
 
   <h1>कनीय अभियंता पद रिक्तियों के लिए मेल भेजें</h1>
-  <button onclick="sendEmail()">📩 Send Mail</button>
+  <button onclick="sendEmail()">📩 Send Mail (Hindi)</button>
+  <button onclick="sendEmailEng()">📩 Send Mail (English)</button>
 
   <div class="footer">By Voice of BTSC-JE</div>
 
@@ -67,6 +68,7 @@
 ];
 const subject = encodeURIComponent(subjects[Math.floor(Math.random() * subjects.length)]);
 
+
       const randomEndings = [
   "आपके उत्तर की प्रतीक्षा में।",
   "कृपया जल्द से जल्द कार्रवाई करें।",
@@ -82,6 +84,22 @@ const subject = encodeURIComponent(subjects[Math.floor(Math.random() * subjects.
   "नवीन विज्ञापन जारी कर हमें सम्मानित करने की कृपा करें।"
 ];
       const ending = randomEndings[Math.floor(Math.random() * randomEndings.length)];
+
+const randomEndingsEng = [
+  "Looking forward to your response.",
+  "Please take action as soon as possible.",
+  "Thank you for your assistance.",
+  "We hope for your positive steps.",
+  "We respectfully request that a decision be made soon.",
+  "We expect your cooperation.",
+  "Your response will be a beacon of hope for all of us.",
+  "Please prioritize this issue.",
+  "Your just action will secure the future of many youths.",
+  "We hope you will make a proper decision with sensitivity.",
+  "Only with your cooperation can the future of the youth be secured.",
+  "Please honor us by issuing a new advertisement."
+];
+      const endingeng = randomEndingsEng[Math.floor(Math.random() * randomEndingsEng.length)];
 
       const body = encodeURIComponent(`सेवा में,
 श्रीमान्,
@@ -107,9 +125,82 @@ ${ending}
 समस्त डिप्लोमा अभ्यर्थीगण,
 बिहार एवं अन्य राज्य`);
 
+
+
       const mailtoLink = `mailto:${to}?cc=${cc}&bcc=${bcc}&subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
     }
+
+function sendEmailEng() {
+  const to = "secyrcd-bih@nic.in,secy-bcd-bih@nic.in,secy-plandev-bih@nic.in,wrd-bih@nic.in,secy-phed-bih@nic.in,urbansec-bih@nic.in,secmnir-bih@nic.in,secy-reo-bih@nic.in";
+      const cc = "cmbihar@nic.in";
+      const bcc = "voiceofbtscje@gmail.com";
+
+      const subjectseng = [
+"Regarding Publication of Advertisement for Junior Engineer Vacancies in All Departments under BTSC",
+  "Request for Advertisement of Junior Engineer Vacancies",
+  "Request to Address Vacancies under Bihar Technical Service Commission",
+  "Kindly Release New Advertisement for JE Posts",
+  "Request for Recruitment Against Pending Junior Engineer Posts",
+  "Urgent Need to Advertise Vacant JE Posts for the Future of Diploma Engineers",
+  "Request for Advertisement of JE Posts after Advt. No. 01/2019",
+  "Urgent Action Requested Regarding Vacant Junior Engineer Positions",
+  "Attention Needed on JE Vacancies in Various Departments of Bihar Government",
+  "Request to Expedite the Recruitment Process for Junior Engineer Posts",
+  "Immediate Recruitment of JEs Required for the Development Projects of the State",
+  "Request for Advertisement of JE Vacancies as per Supreme Court Directions",
+  "Demand for Immediate Advertisement of JE Posts by BTSC",
+  "Appeal for Filling JE Posts Lying Vacant for Five Years"
+];
+const subjecteng = encodeURIComponent(subjectseng[Math.floor(Math.random() * subjectseng.length)]);
+
+const randomEndingsEng = [
+  "Looking forward to your response.",
+  "Please take action as soon as possible.",
+  "Thank you for your assistance.",
+  "We hope for your positive steps.",
+  "We respectfully request that a decision be made soon.",
+  "We expect your cooperation.",
+  "Your response will be a beacon of hope for all of us.",
+  "Please prioritize this issue.",
+  "Your just action will secure the future of many youths.",
+  "We hope you will make a proper decision with sensitivity.",
+  "Only with your cooperation can the future of the youth be secured.",
+  "Please honor us by issuing a new advertisement."
+];
+      const endingeng = randomEndingsEng[Math.floor(Math.random() * randomEndingsEng.length)];
+
+const bodyeng = encodeURIComponent(`To,
+Sir/Ma'am!
+
+1. Chief Secretary, General Administration Department, Patna, Bihar Government
+2. Secretary, Bihar Technical Service Commission, Patna, Bihar
+3. Additional Chief Secretary, Water Resources Department, Bihar Government
+
+Subject: Regarding Publication of Advertisement for Junior Engineer Vacancies in All Departments under BTSC
+
+Respected Sir/Madam,
+
+We, the diploma candidates who passed out from various branches (Mechanical, Electrical, Civil) from 2020 to 2025 and were not selected in Advt. No. -01/2019, would like to draw your kind attention to the fact that as per the latest status report submitted by the state in the SLP (C) No. 7257/2023 ~ Shashi Bhushan Prasad Singh vs. State of Bihar & Ors. case filed in the Hon'ble Supreme Court, approximately 9,187 posts of Junior Engineers are lying vacant, which is severely affecting the daily functioning of the state. As retirements continue, the number of working employees is steadily decreasing.
+
+It is noteworthy that under Advt. No. -01/2019, 6341 Junior Engineers (Civil/Mechanical/Electrical) were selected in all the working departments of the state, out of which approximately 500 to 600+ candidates remained absent in the DV session conducted by the overall working departments of the state.
+
+Furthermore, the vacancies pending for almost 5 years after 2019 have been completed in 2025, but candidates from various branches (Mechanical, Electrical, Civil) who passed in sessions 2017-20, 2018-21, 2019-22, 2020-23, 2021-24 have not been selected.
+
+Therefore, we kindly request you to consider the above facts and publish advertisements for the vacant posts, for which we will always be grateful.
+
+${endingeng}
+
+Sincerely,
+All Diploma Candidates,
+Bihar and Other States`);
+
+
+
+      const mailtoLink = `mailto:${to}?cc=${cc}&bcc=${bcc}&subject=${subjecteng}&body=${bodyeng}`;
+      window.location.href = mailtoLink;
+
+}
   </script>
 
 </body>
