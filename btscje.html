@@ -41,18 +41,68 @@
   <div class="footer">By Voice of BTSC-JE</div>
 
   <script>
+
+    function logNameToSheet(name) {
+  fetch("https://script.google.com/macros/s/YOUR-SCRIPT-ID/exec", {
+    method: "POST",
+    body: JSON.stringify({ name }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(res => res.json()).then(response => {
+    console.log("Logged:", response);
+  }).catch(err => {
+    console.error("Logging failed:", err);
+  });
+    }
+
+    
     function sendEmail() {
+      const name = prompt("अपना नाम दर्ज करें (मेल भेजने वाले):");
+if (name && name.trim() !== "") {
+  logNameToSheet(name.trim());
+} else {
+  alert("कृपया नाम दर्ज करें।");
+}
+      
       const to = "secyrcd-bih@nic.in,secy-bcd-bih@nic.in,secy-plandev-bih@nic.in,wrd-bih@nic.in,secy-phed-bih@nic.in,urbansec-bih@nic.in,secmnir-bih@nic.in,secy-reo-bih@nic.in";
       const cc = "cmbihar@nic.in";
       const bcc = "voiceofbtscje@gmail.com";
-      const subject = encodeURIComponent("बिहार तकनीकी सेवा आयोग के अंतर्गत सभी विभागों में कनीय अभियंता के रिक्त पदों पर विज्ञापन प्रकाशित करने के सन्दर्भ में");
-
+      
+const subjects = [
+  "बिहार तकनीकी सेवा आयोग के अंतर्गत सभी विभागों में कनीय अभियंता के रिक्त पदों पर विज्ञापन प्रकाशित करने के सन्दर्भ में",
+  "कनीय अभियंता रिक्तियों के विज्ञापन हेतु निवेदन",
+  "बिहार तकनीकी सेवा आयोग के अंतर्गत रिक्तियों पर ध्यान देने हेतु",
+  "कृपया जेई पदों पर नवीन विज्ञापन जारी करें",
+  "जूनियर इंजीनियर भर्ती में लंबित पदों के लिए निवेदन",
+  "डिप्लोमा अभियंताओं के भविष्य हेतु रिक्तियों पर शीघ्र विज्ञापन की आवश्यकता",
+  "वि.सं. 01/2019 के बाद नए जेई पदों के विज्ञापन हेतु अनुरोध",
+  "कनीय अभियंता पदों की खाली स्थिति के संदर्भ में तुरंत कार्रवाई का अनुरोध",
+  "बिहार सरकार के विभिन्न विभागों में जेई पदों की रिक्तता पर ध्यान दें",
+  "जूनियर इंजीनियर पदों हेतु लंबित नियुक्ति प्रक्रिया में तेजी लाने हेतु निवेदन",
+  "राज्य के विकास कार्यों के लिए जेई पदों की शीघ्र बहाली आवश्यक",
+  "सुप्रीम कोर्ट के निर्देशानुसार जेई रिक्तियों के विज्ञापन हेतु अनुरोध",
+  "बिहार तकनीकी सेवा आयोग से शीघ्र जेई विज्ञापन की मांग",
+  "पांच वर्षों से रिक्त जेई पदों के भराव हेतु निवेदन",
+  "राज्य की इंजीनियरिंग सेवाओं के सुदृढ़ीकरण हेतु जेई भर्ती पर विचार करें"
+];
+const subject = encodeURIComponent(subjects[Math.floor(Math.random() * subjects.length)]);
+      
+      
       const randomEndings = [
-        "आपके उत्तर की प्रतीक्षा में।",
-        "कृपया जल्द से जल्द कार्रवाई करें।",
-        "आपकी सहायता के लिए धन्यवाद।",
-        "हम आपके सकारात्मक कदम की आशा करते हैं।"
-      ];
+  "आपके उत्तर की प्रतीक्षा में।",
+  "कृपया जल्द से जल्द कार्रवाई करें।",
+  "आपकी सहायता के लिए धन्यवाद।",
+  "हम आपके सकारात्मक कदम की आशा करते हैं।",
+  "सादर निवेदन है कि शीघ्र निर्णय लिया जाए।",
+  "आपसे सहयोग की अपेक्षा है।",
+  "आपका उत्तर हम सभी के लिए आशा की किरण होगा।",
+  "कृपया इस विषय को प्राथमिकता से विचार करें।",
+  "आपकी न्यायोचित कार्रवाई से कई युवाओं को भविष्य मिलेगा।",
+  "आशा है कि आप संवेदनशीलता दिखाते हुए उचित निर्णय लेंगे।",
+  "आपके सहयोग से ही युवाओं का भविष्य सुरक्षित हो सकता है।",
+  "नवीन विज्ञापन जारी कर हमें सम्मानित करने की कृपा करें।"
+];
       const ending = randomEndings[Math.floor(Math.random() * randomEndings.length)];
 
       const body = encodeURIComponent(`सेवा में,
@@ -81,6 +131,7 @@ ${ending}
 
       const mailtoLink = `mailto:${to}?cc=${cc}&bcc=${bcc}&subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
+      
     }
   </script>
 
