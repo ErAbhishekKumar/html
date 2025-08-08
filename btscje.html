@@ -61,9 +61,7 @@
       const name = prompt("अपना नाम दर्ज करें (मेल भेजने वाले):");
 if (name && name.trim() !== "") {
   logNameToSheet(name.trim());
-} else {
-  alert("कृपया नाम दर्ज करें।");
-}
+
       
       const to = "secyrcd-bih@nic.in,secy-bcd-bih@nic.in,secy-plandev-bih@nic.in,wrd-bih@nic.in,secy-phed-bih@nic.in,urbansec-bih@nic.in,secmnir-bih@nic.in,secy-reo-bih@nic.in";
       const cc = "cmbihar@nic.in";
@@ -131,6 +129,9 @@ ${ending}
 
       const mailtoLink = `mailto:${to}?cc=${cc}&bcc=${bcc}&subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
+  } else {
+  alert("कृपया नाम दर्ज करें।");
+}
       
     }
   </script>
