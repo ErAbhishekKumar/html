@@ -59,7 +59,10 @@
     function sendEmail() {
       const name = prompt("अपना नाम दर्ज करें (मेल भेजने वाले):");
 if (name && name.trim() !== "") {
-  logNameToSheet(name.trim());
+  logNameToSheet(name.trim()).then(() => {
+      // Wait for logging to finish, then open mailto
+      setTimeout(() => {
+        
 
       
       const to = "secyrcd-bih@nic.in,secy-bcd-bih@nic.in,secy-plandev-bih@nic.in,wrd-bih@nic.in,secy-phed-bih@nic.in,urbansec-bih@nic.in,secmnir-bih@nic.in,secy-reo-bih@nic.in";
@@ -127,7 +130,9 @@ ${ending}
 बिहार एवं अन्य राज्य`);
 
       const mailtoLink = `mailto:${to}?cc=${cc}&bcc=${bcc}&subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
+      window.location.href = mailtoLink; // पूरा mailto URL यहां
+      }, 1000); // 1 second delay
+    });
   } else {
   alert("कृपया नाम दर्ज करें।");
 }
